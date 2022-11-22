@@ -174,28 +174,6 @@ const userSchema = new mongoose.Schema({
   },
 });
 
-userSchema.pre("save", function (next) {
-  let doc = this;
-  sequencingProperty
-    .getSequenceNextValue("user_id")
-    .then((counter) => {
-      console.log("asdasd", counter);
-      if (!counter) {
-        sequencingProperty
-          .insertCounter("user_id")
-          .then((counter) => {
-            doc._id = counter;
-            console.log(doc);
-            next();
-          })
-          .catch((error) => next(error));
-      } else {
-        doc._id = counter;
-        next();
-      }
-    })
-    .catch((error) => next(error));
-});
-
-const userModal = new mongoose.model("user", userSchema);
-module.exports = userModal;
+userSchema.pre("save");
+const userModel = new mongoose.model("user", userSchema);
+module.exports = userModel;
