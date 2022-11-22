@@ -1,0 +1,68 @@
+/* .Header{
+    width: 100%;
+    height: 127px;
+    display: flex;
+    justify-content: space-between;
+}
+img{
+    width: 75px;
+    height: 75px;
+    float: left;
+    padding: 5px;
+}
+.Aside{
+    width: 250px;
+    background-color: aquamarine;
+    padding: 5px 5px;
+    text-align: center;
+    line-height: 50px;
+
+}
+.Aside.list{
+    list-style-type: none;
+}
+.Common-middle{
+    display: flex;
+}
+.P{
+    padding: 20px;
+} */
+.Common{
+    width: 1600px;
+    height: 1080px;
+    display: flex;
+}
+.aside{
+    margin: 0px;
+    padding: 0px;
+    width: 280px;
+    height: 1080px;
+    box-sizing: border-box;
+    background-color: cadetblue;
+}
+.List{
+    padding: 20px;
+    text-align: left;
+    color: white;
+}
+.remaining{
+    width: 1280px;
+    height: 1080px;
+    box-sizing: border-box;
+    margin: 0px;
+    display: block;
+}
+.Header{
+    margin: 0px;
+    padding: 10px;
+    width: 1280px;
+    height: 127px;
+    display: flex;
+    box-sizing: border-box;
+    justify-content: space-between;
+    border-bottom: 1px solid lightgreen;
+}
+p{
+    margin: 0px;
+    padding: 0px;
+}
