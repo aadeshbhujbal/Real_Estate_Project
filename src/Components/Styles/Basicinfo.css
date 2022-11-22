@@ -1,0 +1,39 @@
+.Containter{
+    width: 1605px;
+    height: 1080px;
+    display: flex;
+    
+  }
+  .form{
+    position:relative;
+    margin-top: -250px;
+  }
+
+.Basic-info{
+    width: 1200px;
+    height: 656px;
+    padding-top:0px;
+    padding-left: 300px;
+    padding-right: 50px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    line-height: 20px;
+    box-sizing: border-box;
+}
+
+
+
+
+.select{
+    width: 400px;
+    height: 30px;
+}
+input{
+    width: 390px;
+    height: 25px;
+}
+.textarea{
+    width: 390px;
+    height: 30px;
+}
