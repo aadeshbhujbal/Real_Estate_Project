@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-=======
 const mongoose = require("mongoose");
 const CounterSchema = new mongoose.Schema({
   _id: {
@@ -11,6 +9,7 @@ const CounterSchema = new mongoose.Schema({
     required: true,
   },
 });
+
 const Counter = mongoose.model("Counter", CounterSchema);
 const getSequenceNextValue = (seqName) => {
   return new Promise((resolve, reject) => {
@@ -30,8 +29,6 @@ const getSequenceNextValue = (seqName) => {
     );
   });
 };
-
->>>>>>> 80868eb1 (All Routes Done Except Add Properties)
 const insertCounter = (seqName) => {
   const newCounter = new Counter({ _id: seqName, seq: 100 });
   return new Promise((resolve, reject) => {
