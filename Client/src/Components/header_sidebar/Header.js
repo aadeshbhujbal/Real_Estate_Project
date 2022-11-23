@@ -21,6 +21,10 @@ const Header = () => {
       axios({
         method: "get",
         url: "http://localhost:5000/property",
+<<<<<<< HEAD
+=======
+        
+>>>>>>> f20767b3 (Changes in Header , Property and Schema)
         headers: {
           Accept: "application/json",
           authorization: token,

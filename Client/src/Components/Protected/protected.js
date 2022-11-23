@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 import { Navigate } from "react-router-dom";
 import { Cookies } from "react-cookie";
 
@@ -36,3 +37,5 @@ export default Protected;
 
 
 >>>>>>> ea84db2e (protected folder uploaded)
+=======
+>>>>>>> f20767b3 (Changes in Header , Property and Schema)

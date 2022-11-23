@@ -18,7 +18,11 @@ const Property = () => {
   const cookies = new Cookies();
   const token = cookies.get("jwt");
   let navigate = useNavigate();
+<<<<<<< HEAD
   console.log(token);
+=======
+  // console.log(token);
+>>>>>>> f20767b3 (Changes in Header , Property and Schema)
 
   const deb = debounce((text) => {
     setValue(text);
@@ -84,6 +88,10 @@ const Property = () => {
         .catch((err) => {
           console.log("Inside catch block of property.js");
           console.log(err);
+<<<<<<< HEAD
+=======
+
+>>>>>>> f20767b3 (Changes in Header , Property and Schema)
           if (
             err.response.data === "Unauthorized user" ||
             err.response.status === 409
@@ -92,12 +100,15 @@ const Property = () => {
           }
         });
     };
-
     afterLogin();
   }, [token, navigate, value]);
 
   return (
     <>
+<<<<<<< HEAD
+=======
+      {/* <Username_id.Provider value={userName_id}> */}
+>>>>>>> f20767b3 (Changes in Header , Property and Schema)
       <Header />
       {/* </Username_id.Provider> */}
       <Sidebar />
@@ -130,11 +141,10 @@ const Property = () => {
       </div>
       <div className="button_div">
         <Link to="/basicinfo">
-          {" "}
           <button className="btn_add">
             <span className="plus">+</span>
             <span className="text_btn">Add Property</span>
-          </button>{" "}
+          </button>
         </Link>
       </div>
 
@@ -172,6 +182,10 @@ const Property = () => {
           </div>
         );
       })}
+<<<<<<< HEAD
+=======
+
+>>>>>>> f20767b3 (Changes in Header , Property and Schema)
     </>
   );
 };
