@@ -1,28 +1,28 @@
 import React from 'react';
 //import Location_info from './AddProperty/Location_info';
 import CommonUI from '../Utilitys/CommonUI';
-import {AiFillCamera} from 'react-icons/ai'
+import { AiFillCamera } from 'react-icons/ai'
 
-export default function Generalinfo(){
+export default function Generalinfo() {
     return (
         <div className='Container'>
-            <div>{<CommonUI/>}</div>
+            <div>{<CommonUI />}</div>
             <div className='form'>
                 <form>
                     <div className='General-info'>
                         <div className='General-info-form'>
                             <label for="name">Name</label>
                             <div>
-                               <input type='text' placeholder='Name'/>
+                                <input type='text' placeholder='Name' />
                             </div>
                         </div>
                         <div className='General-info-form'>
                             <label for="Mobile Number">Mobile Number</label>
                             <div>
-                               <input type='number' placeholder='Enter Mobile Number'/>
+                                <input type='number' placeholder='Enter Mobile Number' />
                             </div>
                         </div>
-                       
+
                         <div className='General-info-form'>
                             <label for='Posted By'>Posted By</label>
                             <div>
@@ -65,15 +65,17 @@ export default function Generalinfo(){
                             </div>
                         </div>
                         <div className='Img'>
-                            <img className='addimages' src='AiFillCamera'/>
+                            <img className='addimages' src='AiFillCamera' />
                             <p>Add Photo</p>
                         </div>
-                        
                     </div>
                     <div className='footer'>
-                        <button className='left'>Previous</button>
-                        <button className='right'>Save&Continue</button>
-
+                        <Link to='/Property_detail'>
+                            <button className='left'>Previous</button>
+                        </Link>
+                        <Link to='/Location_info'>
+                            <button className='right'>Save&Continue</button>
+                        </Link>
                     </div>
                 </form>
             </div>
