@@ -1,0 +1,75 @@
+.Containter{
+    width: 1600px;
+    height: 1080px;
+    display: flex;
+    margin: 0px;
+    box-sizing: border-box;
+    padding: 0px;
+    
+  }
+  .form{
+    width:1200px;
+    height: 700px;
+    margin-left:300px;
+    padding-top: 100px;
+    padding-left: -300px;
+    position:relative;
+    margin-top: -800px;
+    background-color:#F5F5F5;
+    border: 1px solid black;
+  }
+
+.General-info{
+    width: 1200px;
+    height: 656px;
+    padding-top:0px;
+    padding-left: 100px;
+    padding-right: 50px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    line-height: 20px;
+    box-sizing: border-box;
+}
+
+
+
+
+.select{
+    width: 400px;
+    height: 30px;
+}
+input{
+    width: 390px;
+    height: 25px;
+}
+.textarea{
+    width: 390px;
+    height: 30px;
+}
+.left{
+    display: inline;
+    justify-content: space-around;
+    width: 200px;
+    height: 50px;
+    color: white;
+    background-color:#6AB4F8;
+    border: 1px solid black;
+    border-radius: 30px;
+    margin-left: 300px;
+    margin-top: -50px;
+
+}
+.right{
+    display: inline;
+    justify-content: space-around;
+    width: 200px;
+    height: 50px;
+    color: white;
+    background: #4C57B6;
+    border: 1px solid black;
+    border-radius: 30px;
+    margin-left: 300px;
+    margin-top: -50px;
+
+}

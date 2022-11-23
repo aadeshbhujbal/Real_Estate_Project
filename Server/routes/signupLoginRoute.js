@@ -17,6 +17,7 @@ router.post("/login", (req, res) => {
           .then(function (result) {
             if (result) {
               const authToken = jwt.sign(data[0].email, process.env.SC_KEY);
+
               res.status(200).send({ authToken });
             } else {
               res.status(400).send("Incorrect password");
