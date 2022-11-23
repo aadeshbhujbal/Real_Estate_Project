@@ -12,10 +12,9 @@ const Header = () => {
   const [userName_id, setUserName_id] = useState({});
   const cookies = new Cookies();
   const token = cookies.get("jwt");
-
   // const userName_id = useContext(Username_id)
   // console.log(props.userdata)
-  // console.log(userName_id)
+  console.log(userName_id);
   useEffect(() => {
     console.log("Header useEffect");
     const getUserData = () => {
@@ -58,7 +57,6 @@ const Header = () => {
             }}
           />
           {show ? <Logout /> : null}
-          {/* <Logout /> */}
         </div>
       </div>
       <hr className="line"></hr>
