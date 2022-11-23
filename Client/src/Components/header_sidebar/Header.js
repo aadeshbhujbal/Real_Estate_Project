@@ -12,22 +12,13 @@ const Header = () => {
   const [userName_id, setUserName_id] = useState({});
   const cookies = new Cookies();
   const token = cookies.get("jwt");
-  // const userName_id = useContext(Username_id)
-  // console.log(props.userdata)
-  console.log(userName_id);
+  // console.log(userName_id)
   useEffect(() => {
     console.log("Header useEffect");
     const getUserData = () => {
       axios({
         method: "get",
         url: "http://localhost:5000/property",
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-        
->>>>>>> f20767b3 (Changes in Header , Property and Schema)
-=======
->>>>>>> c2d7a40e (All Routes Done Except Add Properties)
         headers: {
           Accept: "application/json",
           authorization: token,
@@ -48,13 +39,14 @@ const Header = () => {
     getUserData();
     // console.log(userName_id)
   }, [token]);
+
   return (
     <>
       <div className="main_header">
         <div className="header_row">
           <span className="user_id_text">USER ID :</span>
           <span className="user_id">CDPPD{userName_id.id}</span>
-          <HiOutlineUser className="user_icon" />{" "}
+          <HiOutlineUser className="user_icon" />
           <span className="user_name">{userName_id.username}</span>
           <AiFillCaretDown
             className="drop_down"
