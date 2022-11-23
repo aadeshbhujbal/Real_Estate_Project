@@ -1,8 +1,8 @@
 const express = require("express");
 const signupModel = require("../models/signupSchema");
 const router = express.Router();
-const bcrypt = require("bcrypt");
 const saltRounds = 10;
+const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 
 router.post("/login", (req, res) => {
@@ -16,7 +16,8 @@ router.post("/login", (req, res) => {
           .compare(req.body.password, data[0].password)
           .then(function (result) {
             if (result) {
-              const authToken = jwt.sign(data[0].email, process.env.SECRET_KEY);
+              const authToken = jwt.sign(data[0].email, process.env.SC_KEY);
+
               res.status(200).send({ authToken });
             } else {
               res.status(400).send("Incorrect password");

@@ -173,6 +173,5 @@ const userSchema = new mongoose.Schema({
 });
 
 userSchema.pre("save");
-
 const userModel = new mongoose.model("user", userSchema);
 module.exports = userModel;

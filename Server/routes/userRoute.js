@@ -10,34 +10,33 @@ router.post("/addproperty", async (req, res) => {
     const createUser = await users.save();
     res.status(201).send(createUser);
   } catch (e) {
-    res.status(400).send("Error in Creating User");
+    res.status(400).send("Error in Creating User: " + e.message);
+
     console.log(e);
   }
 });
 
 router.get("/property", async (req, res) => {
-  // console.log("get route of property")
   try {
     const token = req.headers.authorization;
-    const verifyToken = jwt.verify(token, process.env.SECRET_KEY);
+    const verifyToken = jwt.verify(token, process.env.SC_KEY);
     console.log(verifyToken);
     if (verifyToken) {
-      const userDetail = await signupModel.find({ email: verifyToken });
-
-      if (userDetail.length) {
+      const userDetails = await signupModel.find({ email: verifyToken });
+      if (userDetails.length) {
         const propertyData = await userModel.find();
-        res.status(200).send({ property: propertyData, userData: userDetail });
-        console.log(userDetail);
+        res.status(200).send({ property: propertyData, userData: userDetails });
+        console.log(userDetails);
       } else {
         res.status(409).send("Unauthorized user");
       }
-      // console.log(userDetail)
     } else {
       res.status(409).send("Unauthorized user");
     }
   } catch (err) {
     console.log(err);
     res.status(400).send(err);
+    console.log(err);
   }
 });
 
