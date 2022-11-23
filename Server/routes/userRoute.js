@@ -11,6 +11,7 @@ router.post("/addproperty", async (req, res) => {
     res.status(201).send(createUser);
   } catch (e) {
     res.status(400).send("Error in Creating User: " + e.message);
+
     console.log(e);
   }
 });
