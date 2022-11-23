@@ -39,4 +39,5 @@ router.get("/property", async (req, res) => {
   }
 });
 
+
 module.exports = router;
