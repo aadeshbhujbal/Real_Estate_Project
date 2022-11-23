@@ -1,3 +1,4 @@
+
 import { Navigate } from "react-router-dom";
 import { Cookies } from "react-cookie";
 
@@ -10,3 +11,4 @@ const Protected = ({ children }) => {
   return <>{token.length ? children : <Navigate to="/login" />}</>;
 };
 export default Protected;
+
