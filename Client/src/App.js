@@ -5,9 +5,9 @@ import Signup from "./Components/Signup-Login/Signup";
 import Property from "./Components/property/Property";
 import Protected from "./Components/Protected/protected";
 
-export default function App() {
+function App() {
   return (
-    <div>
+    <>
       <Routes>
         <Route path="/login" element={<Login></Login>}></Route>
         <Route path="/signup" element={<Signup></Signup>}></Route>
@@ -20,6 +20,8 @@ export default function App() {
           }
         ></Route>
       </Routes>
-    </div>
+    </>
   );
 }
+
+export default App;

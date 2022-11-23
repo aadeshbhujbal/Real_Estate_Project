@@ -1,5 +1,4 @@
 const mongoose = require("mongoose");
-
 const SequenceSchema = new mongoose.Schema({
   _id: {
     type: String,
@@ -10,9 +9,7 @@ const SequenceSchema = new mongoose.Schema({
     required: true,
   },
 });
-
 const PropertyCounter = mongoose.model("PropertyCounter", SequenceSchema);
-
 const getSequenceNextValue = (seqName) => {
   return new Promise((resolve, reject) => {
     PropertyCounter.findByIdAndUpdate(
@@ -31,7 +28,6 @@ const getSequenceNextValue = (seqName) => {
     );
   });
 };
-
 const insertCounter = (seqName) => {
   const newCounter = new PropertyCounter({ _id: seqName, seq: 1000 });
   return new Promise((resolve, reject) => {

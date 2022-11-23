@@ -21,7 +21,6 @@ const Header = () => {
       axios({
         method: "get",
         url: "http://localhost:5000/property",
-        
         headers: {
           Accept: "application/json",
           authorization: token,
@@ -39,10 +38,9 @@ const Header = () => {
           console.log(err);
         });
     };
-
     getUserData();
+    // console.log(userName_id)
   }, [token]);
-
   return (
     <>
       <div className="main_header">

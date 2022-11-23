@@ -1,5 +1,4 @@
 const mongoose = require("mongoose");
-
 const CounterSchema = new mongoose.Schema({
   _id: {
     type: String,
@@ -10,9 +9,7 @@ const CounterSchema = new mongoose.Schema({
     required: true,
   },
 });
-
 const Counter = mongoose.model("Counter", CounterSchema);
-
 const getSequenceNextValue = (seqName) => {
   return new Promise((resolve, reject) => {
     Counter.findByIdAndUpdate(

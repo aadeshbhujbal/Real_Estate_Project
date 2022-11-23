@@ -15,11 +15,10 @@ import "./Property.css";
 const Property = () => {
   const [value, setValue] = useState("");
   const [users, setUsers] = useState([]);
-  // const [userName_id, setUserName_id] = useState({})
   const cookies = new Cookies();
   const token = cookies.get("jwt");
   let navigate = useNavigate();
-  // console.log(token);
+  console.log(token);
 
   const deb = debounce((text) => {
     setValue(text);
@@ -37,7 +36,6 @@ const Property = () => {
     const ppd_arr = searchTerm.split(" ");
     console.log(ppd_arr);
     const ppd_id = parseInt(ppd_arr[1]);
-
     // axios.get("http://localhost:5000/property")
     axios({
       method: "get",
@@ -80,13 +78,12 @@ const Property = () => {
         .then((res) => {
           console.log("Inside then block of property.js");
           // console.log(res.data.userData[0]._id)
-          // console.log(res.data.property)
+          console.log(res.data.property);
           setUsers(res.data.property);
         })
         .catch((err) => {
           console.log("Inside catch block of property.js");
           console.log(err);
-
           if (
             err.response.data === "Unauthorized user" ||
             err.response.status === 409
@@ -95,12 +92,12 @@ const Property = () => {
           }
         });
     };
+
     afterLogin();
   }, [token, navigate, value]);
 
   return (
     <>
-      {/* <Username_id.Provider value={userName_id}> */}
       <Header />
       {/* </Username_id.Provider> */}
       <Sidebar />
@@ -133,10 +130,11 @@ const Property = () => {
       </div>
       <div className="button_div">
         <Link to="/basicinfo">
+          {" "}
           <button className="btn_add">
             <span className="plus">+</span>
             <span className="text_btn">Add Property</span>
-          </button>
+          </button>{" "}
         </Link>
       </div>
 
