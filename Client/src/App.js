@@ -1,11 +1,25 @@
 import React from "react";
-import BasicInfo from "./Components/AddProperty/Basic_info";
-import CommonUI from "./Components/Utilitys/CommonUI";
+import { Routes, Route } from "react-router-dom";
+import Login from "./Components/Signup-Login/Login";
+import Signup from "./Components/Signup-Login/Signup";
+import Property from "./Components/property/Property";
+import Protected from "./Components/Protected/protected";
 
-export default function App(){
-  return(
+export default function App() {
+  return (
     <div>
-      <BasicInfo/>
+      <Routes>
+        <Route path="/login" element={<Login></Login>}></Route>
+        <Route path="/signup" element={<Signup></Signup>}></Route>
+        <Route
+          path="/"
+          element={
+            <Protected>
+              <Property />
+            </Protected>
+          }
+        ></Route>
+      </Routes>
     </div>
-  )
+  );
 }

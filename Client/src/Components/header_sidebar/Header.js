@@ -21,7 +21,7 @@ const Header = () => {
       axios({
         method: "get",
         url: "http://localhost:5000/property",
-        asdsad
+        
         headers: {
           Accept: "application/json",
           authorization: token,

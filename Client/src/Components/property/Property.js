@@ -11,11 +11,8 @@ import { Cookies } from "react-cookie";
 import Header from "../header_sidebar/Header";
 import Sidebar from "../header_sidebar/Sidebar";
 import "./Property.css";
-import Modal from "../Modals/Modal";
 
 const Property = () => {
-  const [isOpen, setIsOpen] = useState(false);
-  const [isImage, setIsImage] = useState("");
   const [value, setValue] = useState("");
   const [users, setUsers] = useState([]);
   // const [userName_id, setUserName_id] = useState({})
@@ -24,8 +21,6 @@ const Property = () => {
   let navigate = useNavigate();
   // console.log(token);
 
-  // const [dataval,setDataval]=useState("")
-
   const deb = debounce((text) => {
     setValue(text);
   }, 1000);
@@ -33,7 +28,6 @@ const Property = () => {
   const onChange = (e) => {
     // e.prventDefault();
     const text = e.target.value;
-    // setDataval(text);
     // console.log(e.target.elements.searchtext.value);
     deb(text);
   };
@@ -59,9 +53,7 @@ const Property = () => {
         let post = res.data.property;
         //console.log(post);
         const result = post.filter((val) => val._id === ppd_id);
-
         //console.log(res);
-
         setUsers(result);
         if (result.length === 0) {
           window.alert(`Oops! Please provide the correct "PPD ID".`);
@@ -94,9 +86,7 @@ const Property = () => {
         .catch((err) => {
           console.log("Inside catch block of property.js");
           console.log(err);
-          // if(err){
-          //     navigate("/login")
-          // }
+
           if (
             err.response.data === "Unauthorized user" ||
             err.response.status === 409
@@ -105,13 +95,11 @@ const Property = () => {
           }
         });
     };
-
     afterLogin();
   }, [token, navigate, value]);
 
   return (
     <>
-      {/* <hr></hr> */}
       {/* <Username_id.Provider value={userName_id}> */}
       <Header />
       {/* </Username_id.Provider> */}
@@ -145,11 +133,10 @@ const Property = () => {
       </div>
       <div className="button_div">
         <Link to="/basicinfo">
-          {" "}
           <button className="btn_add">
             <span className="plus">+</span>
             <span className="text_btn">Add Property</span>
-          </button>{" "}
+          </button>
         </Link>
       </div>
 
@@ -170,26 +157,8 @@ const Property = () => {
           <div key={i} className="property_row">
             <p className="property_column_one">PPD {user._id}</p>
             <p className="property_column_two">
-              <FaImages
-                onClick={() => {
-                  setIsOpen(!isOpen);
-                  setIsImage(user.image);
-                }}
-                className="image"
-              />
+              <FaImages className="image" />
             </p>
-            <Modal open={isOpen} onClose={() => setIsOpen(!isOpen)}>
-              <img
-                src={isImage}
-                style={{
-                  width: "1186px",
-                  height: "600px",
-                  borderRadius: "20.5px",
-                }}
-                alt="the property"
-              />
-              {/* hello */}
-            </Modal>
             <p className="property_column_three">{user.property_type}</p>
             <p className="property_column_four">{user.mobile}</p>
             <p className="property_column_five">{user.total_area}</p>
@@ -206,11 +175,6 @@ const Property = () => {
         );
       })}
 
-      {/* {[...users].map((user)=>{
-                return(
-                    <div> {user.email} </div>
-                )
-            })} */}
     </>
   );
 };

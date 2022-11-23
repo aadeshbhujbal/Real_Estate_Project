@@ -210,5 +210,5 @@ userSchema.pre("save", function (next) {
     .catch((error) => next(error));
 });
 
-const userModal = new mongoose.model("user", userSchema);
-module.exports = userModal;
+const userModel = new mongoose.model("user", userSchema);
+module.exports = userModel;
