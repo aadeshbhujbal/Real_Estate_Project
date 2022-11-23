@@ -19,10 +19,14 @@ const Property = () => {
   const token = cookies.get("jwt");
   let navigate = useNavigate();
 <<<<<<< HEAD
+<<<<<<< HEAD
   console.log(token);
 =======
   // console.log(token);
 >>>>>>> f20767b3 (Changes in Header , Property and Schema)
+=======
+  console.log(token);
+>>>>>>> c2d7a40e (All Routes Done Except Add Properties)
 
   const deb = debounce((text) => {
     setValue(text);
@@ -89,9 +93,12 @@ const Property = () => {
           console.log("Inside catch block of property.js");
           console.log(err);
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 
 >>>>>>> f20767b3 (Changes in Header , Property and Schema)
+=======
+>>>>>>> c2d7a40e (All Routes Done Except Add Properties)
           if (
             err.response.data === "Unauthorized user" ||
             err.response.status === 409
@@ -100,15 +107,19 @@ const Property = () => {
           }
         });
     };
+
     afterLogin();
   }, [token, navigate, value]);
 
   return (
     <>
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
       {/* <Username_id.Provider value={userName_id}> */}
 >>>>>>> f20767b3 (Changes in Header , Property and Schema)
+=======
+>>>>>>> c2d7a40e (All Routes Done Except Add Properties)
       <Header />
       {/* </Username_id.Provider> */}
       <Sidebar />
@@ -141,10 +152,11 @@ const Property = () => {
       </div>
       <div className="button_div">
         <Link to="/basicinfo">
+          {" "}
           <button className="btn_add">
             <span className="plus">+</span>
             <span className="text_btn">Add Property</span>
-          </button>
+          </button>{" "}
         </Link>
       </div>
 

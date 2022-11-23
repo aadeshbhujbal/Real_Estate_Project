@@ -6,6 +6,7 @@ import Property from "./Components/property/Property";
 import Protected from "./Components/Protected/protected";
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 function App() {
   return (
     <>
@@ -14,6 +15,11 @@ export default function App() {
   return (
     <div>
 >>>>>>> f20767b3 (Changes in Header , Property and Schema)
+=======
+function App() {
+  return (
+    <>
+>>>>>>> c2d7a40e (All Routes Done Except Add Properties)
       <Routes>
         <Route path="/login" element={<Login></Login>}></Route>
         <Route path="/signup" element={<Signup></Signup>}></Route>
@@ -27,6 +33,7 @@ export default function App() {
         ></Route>
       </Routes>
 <<<<<<< HEAD
+<<<<<<< HEAD
     </>
   );
 }
@@ -37,3 +44,10 @@ export default App;
   );
 }
 >>>>>>> f20767b3 (Changes in Header , Property and Schema)
+=======
+    </>
+  );
+}
+
+export default App;
+>>>>>>> c2d7a40e (All Routes Done Except Add Properties)

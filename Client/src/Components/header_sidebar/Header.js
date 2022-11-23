@@ -22,9 +22,12 @@ const Header = () => {
         method: "get",
         url: "http://localhost:5000/property",
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
         
 >>>>>>> f20767b3 (Changes in Header , Property and Schema)
+=======
+>>>>>>> c2d7a40e (All Routes Done Except Add Properties)
         headers: {
           Accept: "application/json",
           authorization: token,
