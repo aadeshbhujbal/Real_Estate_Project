@@ -17,6 +17,7 @@ router.post("/addproperty", async (req, res) => {
 });
 
 router.get("/property", async (req, res) => {
+  console.log(`This is cookie from backend ${req.headers.authorization}`);
   try {
     const token = req.headers.authorization;
     const verifyToken = jwt.verify(token, process.env.SC_KEY);

@@ -29,7 +29,28 @@ const signupSchema = new mongoose.Schema({
   },
 });
 
-signupSchema.pre("save");
+signupSchema.pre("save", function (next) {
+  let doc = this;
+  sequencing
+    .getSequenceNextValue("user_id")
+    .then((counter) => {
+      console.log("asdasd", counter);
+      if (!counter) {
+        sequencing
+          .insertCounter("user_id")
+          .then((counter) => {
+            doc._id = counter;
+            console.log(doc);
+            next();
+          })
+          .catch((error) => next(error));
+      } else {
+        doc._id = counter;
+        next();
+      }
+    })
+    .catch((error) => next(error));
+});
 
 const signupModal = mongoose.model("signup", signupSchema);
 
