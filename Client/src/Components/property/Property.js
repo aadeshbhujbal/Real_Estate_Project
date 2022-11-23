@@ -11,20 +11,22 @@ import { Cookies } from "react-cookie";
 import Header from "../header_sidebar/Header";
 import Sidebar from "../header_sidebar/Sidebar";
 import "./Property.css";
-import Modal from "../Modals/Modal";
 
 const Property = () => {
-  const [isOpen, setIsOpen] = useState(false);
-  const [isImage, setIsImage] = useState("");
   const [value, setValue] = useState("");
   const [users, setUsers] = useState([]);
-  // const [userName_id, setUserName_id] = useState({})
   const cookies = new Cookies();
   const token = cookies.get("jwt");
   let navigate = useNavigate();
+<<<<<<< HEAD
+<<<<<<< HEAD
+  console.log(token);
+=======
   // console.log(token);
-
-  // const [dataval,setDataval]=useState("")
+>>>>>>> f20767b3 (Changes in Header , Property and Schema)
+=======
+  console.log(token);
+>>>>>>> c2d7a40e (All Routes Done Except Add Properties)
 
   const deb = debounce((text) => {
     setValue(text);
@@ -33,7 +35,6 @@ const Property = () => {
   const onChange = (e) => {
     // e.prventDefault();
     const text = e.target.value;
-    // setDataval(text);
     // console.log(e.target.elements.searchtext.value);
     deb(text);
   };
@@ -43,7 +44,6 @@ const Property = () => {
     const ppd_arr = searchTerm.split(" ");
     console.log(ppd_arr);
     const ppd_id = parseInt(ppd_arr[1]);
-
     // axios.get("http://localhost:5000/property")
     axios({
       method: "get",
@@ -59,9 +59,7 @@ const Property = () => {
         let post = res.data.property;
         //console.log(post);
         const result = post.filter((val) => val._id === ppd_id);
-
         //console.log(res);
-
         setUsers(result);
         if (result.length === 0) {
           window.alert(`Oops! Please provide the correct "PPD ID".`);
@@ -88,15 +86,19 @@ const Property = () => {
         .then((res) => {
           console.log("Inside then block of property.js");
           // console.log(res.data.userData[0]._id)
-          // console.log(res.data.property)
+          console.log(res.data.property);
           setUsers(res.data.property);
         })
         .catch((err) => {
           console.log("Inside catch block of property.js");
           console.log(err);
-          // if(err){
-          //     navigate("/login")
-          // }
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+
+>>>>>>> f20767b3 (Changes in Header , Property and Schema)
+=======
+>>>>>>> c2d7a40e (All Routes Done Except Add Properties)
           if (
             err.response.data === "Unauthorized user" ||
             err.response.status === 409
@@ -111,8 +113,13 @@ const Property = () => {
 
   return (
     <>
-      {/* <hr></hr> */}
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
       {/* <Username_id.Provider value={userName_id}> */}
+>>>>>>> f20767b3 (Changes in Header , Property and Schema)
+=======
+>>>>>>> c2d7a40e (All Routes Done Except Add Properties)
       <Header />
       {/* </Username_id.Provider> */}
       <Sidebar />
@@ -170,26 +177,8 @@ const Property = () => {
           <div key={i} className="property_row">
             <p className="property_column_one">PPD {user._id}</p>
             <p className="property_column_two">
-              <FaImages
-                onClick={() => {
-                  setIsOpen(!isOpen);
-                  setIsImage(user.image);
-                }}
-                className="image"
-              />
+              <FaImages className="image" />
             </p>
-            <Modal open={isOpen} onClose={() => setIsOpen(!isOpen)}>
-              <img
-                src={isImage}
-                style={{
-                  width: "1186px",
-                  height: "600px",
-                  borderRadius: "20.5px",
-                }}
-                alt="the property"
-              />
-              {/* hello */}
-            </Modal>
             <p className="property_column_three">{user.property_type}</p>
             <p className="property_column_four">{user.mobile}</p>
             <p className="property_column_five">{user.total_area}</p>
@@ -205,12 +194,10 @@ const Property = () => {
           </div>
         );
       })}
+<<<<<<< HEAD
+=======
 
-      {/* {[...users].map((user)=>{
-                return(
-                    <div> {user.email} </div>
-                )
-            })} */}
+>>>>>>> f20767b3 (Changes in Header , Property and Schema)
     </>
   );
 };
