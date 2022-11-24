@@ -1,12 +1,12 @@
 const express = require("express");
-const signupModel = require("../models/signupSchema");
+const signupModal = require("../models/signupSchema");
 const router = express.Router();
-const saltRounds = 10;
 const bcrypt = require("bcrypt");
+const saltRounds = 10;
 const jwt = require("jsonwebtoken");
 
 router.post("/login", (req, res) => {
-  signupModel
+  signupModal
     .find({ email: req.body.email })
     .then((data) => {
       if (!data.length) {
@@ -17,7 +17,10 @@ router.post("/login", (req, res) => {
           .then(function (result) {
             if (result) {
               const authToken = jwt.sign(data[0].email, process.env.SC_KEY);
-
+              // res.cookie("jwtoken", "thisIsSomeRandomCookieValuePassedThroughBackend", {
+              //     expires: new Date(Date.now()+100000),
+              //     httpOnly: true
+              // })
               res.status(200).send({ authToken });
             } else {
               res.status(400).send("Incorrect password");
@@ -31,11 +34,11 @@ router.post("/login", (req, res) => {
 });
 
 router.post("/signup", (req, res) => {
-  signupModel.find({ email: req.body.email }).then((data) => {
+  signupModal.find({ email: req.body.email }).then((data) => {
     if (data.length) {
       res.status(400).send("User already exists!");
     } else {
-      const newUser = new signupModel({ ...req.body });
+      const newUser = new signupModal({ ...req.body });
       bcrypt
         .hash(req.body.password, saltRounds)
         .then(function (hash) {
