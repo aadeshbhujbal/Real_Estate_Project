@@ -2,19 +2,6 @@ const mongoose = require("mongoose");
 const sequencingProperty = require("../config/sequencingProperty");
 const validator = require("validator");
 
-// const random_views = Math.floor((Math.random()*100)+1);
-// let random_days;
-// const arr=['Sold','Unsold']
-// const random_string= arr[Math.floor(Math.random()*arr.length)];
-// if(random_string==="Sold")
-// {
-//     random_days=0;
-// }
-// else if(random_string==="Unsold")
-// {
-//     random_days = Math.floor((Math.random()*100)+1);
-// }
-
 const userSchema = new mongoose.Schema({
   // BASIC INFO
   //-----------------------------------------------
@@ -210,5 +197,5 @@ userSchema.pre("save", function (next) {
     .catch((error) => next(error));
 });
 
-const userModel = new mongoose.model("user", userSchema);
-module.exports = userModel;
+const userModal = new mongoose.model("user", userSchema);
+module.exports = userModal;

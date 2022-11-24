@@ -52,6 +52,6 @@ signupSchema.pre("save", function (next) {
     .catch((error) => next(error));
 });
 
-const signupModel = mongoose.model("signup", signupSchema);
+const signupModal = mongoose.model("signup", signupSchema);
 
-module.exports = signupModel;
+module.exports = signupModal;

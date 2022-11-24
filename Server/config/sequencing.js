@@ -29,6 +29,7 @@ const getSequenceNextValue = (seqName) => {
     );
   });
 };
+
 const insertCounter = (seqName) => {
   const newCounter = new Counter({ _id: seqName, seq: 100 });
   return new Promise((resolve, reject) => {

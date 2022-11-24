@@ -15,18 +15,11 @@ import "./Property.css";
 const Property = () => {
   const [value, setValue] = useState("");
   const [users, setUsers] = useState([]);
+  // const [userName_id, setUserName_id] = useState({})
   const cookies = new Cookies();
   const token = cookies.get("jwt");
   let navigate = useNavigate();
-<<<<<<< HEAD
-<<<<<<< HEAD
-  console.log(token);
-=======
   // console.log(token);
->>>>>>> f20767b3 (Changes in Header , Property and Schema)
-=======
-  console.log(token);
->>>>>>> c2d7a40e (All Routes Done Except Add Properties)
 
   const deb = debounce((text) => {
     setValue(text);
@@ -35,6 +28,7 @@ const Property = () => {
   const onChange = (e) => {
     // e.prventDefault();
     const text = e.target.value;
+    // setDataval(text);
     // console.log(e.target.elements.searchtext.value);
     deb(text);
   };
@@ -44,6 +38,7 @@ const Property = () => {
     const ppd_arr = searchTerm.split(" ");
     console.log(ppd_arr);
     const ppd_id = parseInt(ppd_arr[1]);
+
     // axios.get("http://localhost:5000/property")
     axios({
       method: "get",
@@ -59,7 +54,9 @@ const Property = () => {
         let post = res.data.property;
         //console.log(post);
         const result = post.filter((val) => val._id === ppd_id);
+
         //console.log(res);
+
         setUsers(result);
         if (result.length === 0) {
           window.alert(`Oops! Please provide the correct "PPD ID".`);
@@ -86,19 +83,13 @@ const Property = () => {
         .then((res) => {
           console.log("Inside then block of property.js");
           // console.log(res.data.userData[0]._id)
-          console.log(res.data.property);
+          // console.log(res.data.property)
           setUsers(res.data.property);
         })
         .catch((err) => {
           console.log("Inside catch block of property.js");
           console.log(err);
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
 
->>>>>>> f20767b3 (Changes in Header , Property and Schema)
-=======
->>>>>>> c2d7a40e (All Routes Done Except Add Properties)
           if (
             err.response.data === "Unauthorized user" ||
             err.response.status === 409
@@ -113,15 +104,8 @@ const Property = () => {
 
   return (
     <>
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-      {/* <Username_id.Provider value={userName_id}> */}
->>>>>>> f20767b3 (Changes in Header , Property and Schema)
-=======
->>>>>>> c2d7a40e (All Routes Done Except Add Properties)
       <Header />
-      {/* </Username_id.Provider> */}
+
       <Sidebar />
       <div className="row_search_bar">
         <div className="boxContainer">
@@ -179,6 +163,7 @@ const Property = () => {
             <p className="property_column_two">
               <FaImages className="image" />
             </p>
+
             <p className="property_column_three">{user.property_type}</p>
             <p className="property_column_four">{user.mobile}</p>
             <p className="property_column_five">{user.total_area}</p>
@@ -194,10 +179,6 @@ const Property = () => {
           </div>
         );
       })}
-<<<<<<< HEAD
-=======
-
->>>>>>> f20767b3 (Changes in Header , Property and Schema)
     </>
   );
 };

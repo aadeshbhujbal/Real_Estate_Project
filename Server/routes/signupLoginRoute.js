@@ -11,21 +11,19 @@ router.post("/login", (req, res) => {
     .then((data) => {
       if (!data.length) {
         res.status(400).send("User doesn't exists!");
+        console.log(data.length);
       } else {
         bcrypt
           .compare(req.body.password, data[0].password)
           .then(function (result) {
             if (result) {
               const authToken = jwt.sign(data[0].email, process.env.SC_KEY);
-              // res.cookie("jwtoken", "thisIsSomeRandomCookieValuePassedThroughBackend", {
-              //     expires: new Date(Date.now()+100000),
-              //     httpOnly: true
-              // })
               res.status(200).send({ authToken });
             } else {
               res.status(400).send("Incorrect password");
             }
           });
+        console.log(data.length);
       }
     })
     .catch((err) => {

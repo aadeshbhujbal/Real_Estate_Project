@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
-const CounterSchema = new mongoose.Schema({
+
+const SequenceSchema = new mongoose.Schema({
   _id: {
     type: String,
     required: true,
@@ -9,10 +10,12 @@ const CounterSchema = new mongoose.Schema({
     required: true,
   },
 });
-const Counter = mongoose.model("Counter", CounterSchema);
+
+const PropertyCounter = mongoose.model("PropertyCounter", SequenceSchema);
+
 const getSequenceNextValue = (seqName) => {
   return new Promise((resolve, reject) => {
-    Counter.findByIdAndUpdate(
+    PropertyCounter.findByIdAndUpdate(
       { _id: seqName },
       { $inc: { seq: 1 } },
       (error, counter) => {
@@ -28,8 +31,9 @@ const getSequenceNextValue = (seqName) => {
     );
   });
 };
+
 const insertCounter = (seqName) => {
-  const newCounter = new Counter({ _id: seqName, seq: 100 });
+  const newCounter = new PropertyCounter({ _id: seqName, seq: 1000 });
   return new Promise((resolve, reject) => {
     newCounter
       .save()
@@ -40,7 +44,7 @@ const insertCounter = (seqName) => {
   });
 };
 module.exports = {
-  Counter,
+  PropertyCounter,
   getSequenceNextValue,
   insertCounter,
 };
