@@ -28,7 +28,6 @@ const Property = () => {
   const onChange = (e) => {
     // e.prventDefault();
     const text = e.target.value;
-    // setDataval(text);
     // console.log(e.target.elements.searchtext.value);
     deb(text);
   };
@@ -38,7 +37,7 @@ const Property = () => {
     const ppd_arr = searchTerm.split(" ");
     console.log(ppd_arr);
     const ppd_id = parseInt(ppd_arr[1]);
-
+    //////////////////Search in Headers //
     // axios.get("http://localhost:5000/property")
     axios({
       method: "get",
@@ -54,9 +53,7 @@ const Property = () => {
         let post = res.data.property;
         //console.log(post);
         const result = post.filter((val) => val._id === ppd_id);
-
         //console.log(res);
-
         setUsers(result);
         if (result.length === 0) {
           window.alert(`Oops! Please provide the correct "PPD ID".`);
@@ -66,7 +63,7 @@ const Property = () => {
         console.log(err);
       });
   };
-
+  /////Search in PPD Ends and Shows Data From All Users//
   useEffect(() => {
     const afterLogin = () => {
       console.log("Inside afterLogin function property.js useEffect");
@@ -105,7 +102,6 @@ const Property = () => {
   return (
     <>
       <Header />
-
       <Sidebar />
       <div className="row_search_bar">
         <div className="boxContainer">
