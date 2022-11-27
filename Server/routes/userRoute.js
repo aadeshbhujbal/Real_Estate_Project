@@ -1,35 +1,42 @@
 const express = require("express");
-const userModel = require("../models/userSchema");
+const userModal = require("../models/userSchema");
 const router = express.Router();
 const jwt = require("jsonwebtoken");
-const signupModel = require("../models/signupSchema");
+const signupModal = require("../models/signupSchema");
 
 router.post("/addproperty", async (req, res) => {
   try {
-    const users = new userModel(req.body);
+    const users = new userModal(req.body);
     const createUser = await users.save();
     res.status(201).send(createUser);
   } catch (e) {
-    res.status(400).send("Error in Creating User: " + e.message);
-
+    res.status(400).send("Error in catch");
     console.log(e);
   }
 });
 
 router.get("/property", async (req, res) => {
+  // res.status(200).send("property GET route")
+  console.log(`This is cookie from backend ${req.headers.authorization}`);
+
+  // console.log("get route of property")
   try {
     const token = req.headers.authorization;
     const verifyToken = jwt.verify(token, process.env.SC_KEY);
     console.log(verifyToken);
     if (verifyToken) {
-      const userDetails = await signupModel.find({ email: verifyToken });
-      if (userDetails.length) {
-        const propertyData = await userModel.find();
-        res.status(200).send({ property: propertyData, userData: userDetails });
-        console.log(userDetails);
+      console.log(verifyToken);
+      const userDetail = await signupModal.find({ email: verifyToken });
+      //   console.log(userDetail);
+
+      if (userDetail.length) {
+        const propertyData = await userModal.find();
+        res.status(200).send({ property: propertyData, userData: userDetail });
+        console.log(userDetail);
       } else {
         res.status(409).send("Unauthorized user");
       }
+      console.log(userDetail);
     } else {
       res.status(409).send("Unauthorized user");
     }
